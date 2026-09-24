@@ -5,5 +5,5 @@ const stripe = new Stripe("sk_test_shimpilot_fixture", {
 });
 
 export async function cancelSandboxSubscription(subscriptionId: string) {
-  return stripe.subscriptions.del(subscriptionId);
+  return stripe.subscriptions.cancel(subscriptionId);
 }
