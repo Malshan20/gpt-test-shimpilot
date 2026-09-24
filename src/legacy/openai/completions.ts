@@ -1,5 +1,8 @@
-import { legacyOpenAI } from "./client";
+import OpenAI from "openai";
+
+const openai = new OpenAI();
 
 export async function legacyCompletion(prompt: string) {
-  return legacyOpenAI.createCompletion({ model: "text-davinci-003", prompt, max_tokens: 120, temperature: 0.2 });
+  const data = await openai.completions.create({ model: "text-davinci-003", prompt, max_tokens: 120, temperature: 0.2 });
+  return data.choices[0].text;
 }
